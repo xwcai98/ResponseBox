@@ -1,0 +1,38 @@
+% Simple Package for response letter
+% Author: Xinwei Cai
+% Date: Nov. 2023
+
+% Usage:
+% \usepackage{responsebox}
+
+\ProvidesPackage{responsebox}
+\RequirePackage{color}
+\RequirePackage[tikz]{bclogo}
+\RequirePackage[framemethod=tikz]{mdframed}
+
+\newcommand{\Comment}[2]{
+    \vspace{0.02in}
+    \setlength{\logowidth}{0pt}
+    \begin{bclogo}[logo=\bctrombone, barre=none, arrondi=0.2, couleurBord=gray, couleur=gray!40]{\textbf{ Comment #1}}
+    #2
+    \end{bclogo}
+    \vspace{-0.01in}
+}
+
+% Usage:
+% \Comment{R1.W1}{This paper is ...}
+
+\newcommand{\Response}[1]{\noindent\textbf{Response #1:}}
+
+% Usage:
+% \Response{R1.W1} Thanks for the comment. ...
+
+\newcommand{\Concern}[1]{
+    \vspace{0.05in}
+    \begin{mdframed}[backgroundcolor=gray!25,shadow=false,roundcorner=5pt,topline=false,bottomline=false,,rightline=false,leftline=false]
+    #1
+    \end{mdframed}
+}
+
+% Usage:
+% \Concern{The concern that ...}
